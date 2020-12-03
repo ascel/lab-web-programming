@@ -38,9 +38,8 @@
                               Item
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Add item</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Show all item</a>
+                                <a class="dropdown-item" href="{{ route('manage.item.list') }}">Show all item</a>
+                                <a class="dropdown-item" href="#">Add item</a>
                             </div>
                         </div>
                         <div class="btn-group">
@@ -48,9 +47,8 @@
                               Category
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Add category</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Show all category</a>
+                                <a class="dropdown-item" href="#">Show all category</a>
+                                <a class="dropdown-item" href="#">Add category</a>
                             </div>
                         </div>
                     </ul>
@@ -93,7 +91,16 @@
         </nav>
 
         <main class="py-4">
-            MANAGE
+
+            @if(session()->has('success'))
+                <div class="container">
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                </div>
+            @endif
+
+            @yield('content')
         </main>
     </div>
 </body>

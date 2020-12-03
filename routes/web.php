@@ -20,3 +20,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/manage', 'ManagerController@index')->middleware('auth')->middleware('admin')->name('manage');
+Route::get('/manage/itemlist', 'ManagerController@showItem')->middleware('auth')->middleware('admin')->name('manage.item.list');
+Route::delete('/manage/itemlist/{item:id}/delete', 'ManagerController@destroyItem')->middleware('auth')->middleware('admin')->name('manage.destroy.item');
