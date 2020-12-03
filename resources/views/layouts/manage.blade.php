@@ -92,15 +92,9 @@
 
         <main class="py-4">
 
-            @if(session()->has('success'))
-                <div class="container">
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                </div>
-            @endif
-
+            @include('layouts.alert')
             @yield('content')
+            
         </main>
     </div>
 </body>
