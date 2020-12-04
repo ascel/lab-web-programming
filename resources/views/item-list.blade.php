@@ -22,6 +22,13 @@
         <div class="col-md-2">
             <div class="card">
                 <div class="card-body text-center">
+                    Product Name
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body text-center">
                     Product Category
                 </div>
             </div>
@@ -61,6 +68,13 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <img style="height: 200px; object-fit: cover; object-position: center;" src="/storage/{{ $item->imageUrl }}" alt="{{ $item->name }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        {{ $item->name }}
                     </div>
                 </div>
             </div>
