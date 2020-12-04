@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-body text-center">
-                <form action="{{ route('manage.store.category') }}" method="post" autocomplete="off" enctype="multipart/form-data">
+                <form action="{{ route('manage.store.category') }}" method="post" autocomplete="off" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Category Name">
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Category Name" required>
                         @error('name')
                             <div class="mt-2 text-danger">
                                 {{ $message }}
