@@ -6,6 +6,7 @@ use App\Category;
 use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ManagerController extends Controller
 {
@@ -30,6 +31,15 @@ class ManagerController extends Controller
     } 
 
     public function storeItem(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required|unique:App\Item,name',
+            'category_id' => 'required',
+            'description' => 'required',
+            'price' => 'integer|gte:100',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|file|max:10000'
+        ]);
+
         $item = $request->all();
         $thumbnail = request()->file('image');
         $time = time();
@@ -56,6 +66,11 @@ class ManagerController extends Controller
     } 
 
     public function storeCategory(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required|unique:App\Category,name'
+        ]);
+
         $category = $request->all();
         Category::create($category);
         session()->flash("success", "The category was successfully added to the server");

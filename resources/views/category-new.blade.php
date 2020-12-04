@@ -10,6 +10,11 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Category Name">
+                        @error('name')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Add Category</button>
                 </form>
