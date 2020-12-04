@@ -46,7 +46,8 @@ class ManagerController extends Controller
 
     public function showCategory() {
         $categories = Category::get();
-        return view('category-list', compact('categories'));
+        $products = NULL;
+        return view('category-list', compact('categories', 'products'));
     }
 
     public function newCategory() {
@@ -59,5 +60,11 @@ class ManagerController extends Controller
         session()->flash("success", "The category was successfully added to the server");
         return redirect()->to(route('manage.category.list'));
     } 
+
+    public function showCategorySpecific($category_id) {
+        $categories = Category::get();
+        $products = Item::where('category_id', $category_id)->get();
+        return view('category-list', compact('categories', 'products'));
+    }
 
 }

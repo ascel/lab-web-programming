@@ -26,5 +26,6 @@ Route::post('/manage/item/store', 'ManagerController@storeItem')->middleware('au
 Route::delete('/manage/itemlist/{item:id}/delete', 'ManagerController@destroyItem')->middleware('auth')->middleware('admin')->name('manage.destroy.item');
 
 Route::get('/manage/categorylist', 'ManagerController@showCategory')->middleware('auth')->middleware('admin')->name('manage.category.list');
+Route::get('/manage/categorylist/{id}', 'ManagerController@showCategorySpecific')->middleware('auth')->middleware('admin')->name('manage.category.specific');
 Route::get('/manage/newCategory', 'ManagerController@newCategory')->middleware('auth')->middleware('admin')->name('manage.new.category');
 Route::post('/manage/category/store', 'ManagerController@storeCategory')->middleware('auth')->middleware('admin')->name('manage.store.category');
