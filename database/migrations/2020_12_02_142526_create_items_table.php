@@ -15,9 +15,9 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('category_id')->references('id')->on('categories')->default(NULL);
             $table->string('name');
-            $table->string('imageUrl');
+            $table->string('imageUrl')->nullable();
             $table->bigInteger('price');
             $table->longText('description');
             $table->timestamps();

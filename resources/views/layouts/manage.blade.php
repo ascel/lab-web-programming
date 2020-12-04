@@ -39,7 +39,7 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('manage.item.list') }}">Show all item</a>
-                                <a class="dropdown-item" href="#">Add item</a>
+                                <a class="dropdown-item" href="{{ route('manage.new.item') }}">Add item</a>
                             </div>
                         </div>
                         <div class="btn-group">
@@ -47,8 +47,8 @@
                               Category
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Show all category</a>
-                                <a class="dropdown-item" href="#">Add category</a>
+                                <a class="dropdown-item" href="{{ route('manage.category.list') }}">Show all category</a>
+                                <a class="dropdown-item" href="{{ route('manage.new.category') }}">Add category</a>
                             </div>
                         </div>
                     </ul>

@@ -1,7 +1,10 @@
 @extends('layouts.manage')
 
 @section('content')
-    <div class="row justify-content-center bg-light">
+    <h3 class="text text-center ">
+        Product
+    </h3>
+    <div class="row justify-content-center bg-light font-weight-bold">
         <div class="col-md-1">
             <div class="card">
                 <div class="card-body text-center">
@@ -57,7 +60,7 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="\{{ $item->imageUrl }}" alt="{{ $item->name }}" class="img-fluid">
+                        <img style="height: 200px; object-fit: cover; object-position: center;" src="/storage/{{ $item->imageUrl }}" alt="{{ $item->name }}" class="img-fluid">
                     </div>
                 </div>
             </div>
