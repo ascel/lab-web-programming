@@ -32,7 +32,8 @@ class ManagerController extends Controller
     public function storeItem(Request $request) {
         $item = $request->all();
         $thumbnail = request()->file('image');
-        $item['imageUrl'] = $thumbnail->storeAs("src/images", "{time()}.{$thumbnail->extension()}");
+        $time = time();
+        $item['imageUrl'] = $thumbnail->storeAs("src/images", "{$time}.{$thumbnail->extension()}");
         Item::create($item);
         session()->flash("success", "The item was successfully added to the server");
         return redirect()->to(route('manage.item.list'));
