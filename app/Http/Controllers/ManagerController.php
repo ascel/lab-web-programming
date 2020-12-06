@@ -79,7 +79,7 @@ class ManagerController extends Controller
 
     public function showCategorySpecific($category_id) {
         $categories = Category::get();
-        $products = Item::where('category_id', $category_id)->get();
+        $products = Category::find($category_id)->items;
         return view('category-list', compact('categories', 'products'));
     }
 
