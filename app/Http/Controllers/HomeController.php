@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'index1']);
+        $this->middleware('auth')->except(['index']);
     }
 
     /**
@@ -39,4 +39,10 @@ class HomeController extends Controller
         }
     }
     
+    public function details($item_id)
+    {
+        $item = Item::where('id', $item_id)->firstOrFail();
+        return view('item-description', compact('item'));
+    }
+
 }
