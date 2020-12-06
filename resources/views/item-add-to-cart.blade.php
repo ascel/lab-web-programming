@@ -32,7 +32,7 @@
                 </div>
                 <div class="container">
                     <label for="quantity">Quantity : </label>
-                    <input class="btn btn-outline-primary" type="number" id="quantity" name="quantity" min="1" max="100">
+                    <input class="btn btn-outline-primary bg bg-white" type="number" id="quantity" name="quantity" min="1" max="100">
                 </div>
                 <div class="container mt-2">
                     <a href="#" class="btn btn-success">Add To Cart</a>
