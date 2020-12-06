@@ -30,8 +30,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <label for="quantity">Quantity : </label>
+                    <input class="btn btn-outline-primary" type="number" id="quantity" name="quantity" min="1" max="100">
+                </div>
                 <div class="container mt-2">
-                    <a href="/item/add-to-cart/{{ $item->id }}" class="btn btn-success">Add To Cart</a>
+                    <a href="#" class="btn btn-success">Add To Cart</a>
                 </div>
             </div>
         </div>

@@ -45,4 +45,9 @@ class HomeController extends Controller
         return view('item-description', compact('item'));
     }
 
+    public function add_to_cart($item_id)
+    {
+        $item = Item::where('id', $item_id)->firstOrFail();
+        return view('item-add-to-cart', compact('item'));
+    }
 }

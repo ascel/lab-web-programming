@@ -18,7 +18,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/item/{id}', 'HomeController@details')->name('home');
+Route::get('/item/{id}', 'HomeController@details')->name('home.item.desc');
+Route::get('/item/add-to-cart/{id}', 'HomeController@add_to_cart')->name('home.item.add.to.cart');
 
 Route::get('/manage', 'ManagerController@index')->name('manage');
 Route::get('/manage/itemlist', 'ManagerController@showItem')->name('manage.item.list');
