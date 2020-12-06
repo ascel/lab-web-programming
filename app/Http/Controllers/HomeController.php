@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index', 'index1']);
     }
 
     /**
@@ -30,12 +30,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = Item::paginate(3);
         if(Auth::check() and Auth::User()->is_admin) {
             return redirect()->route('manage');
         }
         else {
+            $items = Item::paginate(3);
             return view('home', compact('items'));
         }
     }
+    
 }

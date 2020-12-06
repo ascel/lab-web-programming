@@ -33,23 +33,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if(Auth::check())
-                            @if(Auth::User()->is_admin)
-                                <a href="{{ route('manage') }}" class="btn btn-info">Manage Shop</a>
-                            @endif
+                        @if(Auth::check() and Auth::User()->is_admin)
+                            <a href="{{ route('manage') }}" class="btn btn-info">Manage Shop</a>
                         @endif
-                    </ul>
-                    
-                    <ul class="navbar-nav">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                          </form>
                     </ul>
             
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" style="width: 85%">
                         <!-- Authentication Links -->
+                        <form class="form-inline my-2 my-sm-0" style="width: 100%">
+                            <input class="form-control mr-sm-2" style="width: 80%" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
