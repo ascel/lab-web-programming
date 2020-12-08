@@ -35,11 +35,11 @@
                     <ul class="navbar-nav mr-auto">
                         <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Item
+                              Product
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('manage.item.list') }}">Show all item</a>
-                                <a class="dropdown-item" href="{{ route('manage.new.item') }}">Add item</a>
+                                <a class="dropdown-item" href="{{ route('manage.item.list') }}">Show all product</a>
+                                <a class="dropdown-item" href="{{ route('manage.new.item') }}">Add product</a>
                             </div>
                         </div>
                         <div class="btn-group">

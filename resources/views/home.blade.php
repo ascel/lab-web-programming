@@ -36,6 +36,7 @@
             @endforeach
         </div>
     </div>
+    
     <div class="pagination justify-content-center mt-3">
         {{ $items }}
     </div>
