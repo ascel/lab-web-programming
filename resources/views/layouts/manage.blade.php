@@ -42,7 +42,7 @@
                                 <a class="dropdown-item" href="{{ route('manage.new.item') }}">Add product</a>
                             </div>
                         </div>
-                        <div class="btn-group">
+                        <div class="btn-group ml-1">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Category
                             </button>
