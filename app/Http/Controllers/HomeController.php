@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CartDetail;
 use App\Category;
 use Exception;
 use Illuminate\Http\Request;
@@ -49,5 +50,30 @@ class HomeController extends Controller
     {
         $item = Item::where('id', $item_id)->firstOrFail();
         return view('item-add-to-cart', compact('item'));
+    }
+
+    public function storeCart($item_id, Request $request) {
+        $item = Item::where('id', $item_id)->firstOrFail();
+        $qty = $request->all()['qty'];
+
+        if(CartDetail::where('user_id', Auth::user()->id)->where('item_id', $item_id)->exists()) {
+            CartDetail::where('user_id', Auth::user()->id)->where('item_id', $item_id)->update([
+                'qty' => $qty,
+                'total_price' => $qty * $item->price,
+            ]);
+            session()->flash("success", "The item in your cart was successfully updated");
+        }
+        else {
+            $item_cart = new CartDetail;
+            $item_cart['item_id'] = $item->id;
+            $item_cart['user_id'] = Auth::user()->id;
+            $item_cart['qty'] = $qty;
+            $item_cart['total_price'] = $qty * $item->price;
+
+            $item_cart->save();
+            session()->flash("success", "The item was successfully added to your cart");
+        }
+
+        return redirect()->to(route('home'));
     }
 }

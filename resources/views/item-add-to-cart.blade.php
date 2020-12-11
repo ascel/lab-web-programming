@@ -31,11 +31,14 @@
                     </div>
                 </div>
                 <div class="container">
-                    <label for="quantity">Quantity : </label>
-                    <input class="text-body btn btn-outline-primary bg bg-white" type="number" id="quantity" name="quantity" min="1" max="100" value="1">
-                </div>
-                <div class="container mt-2">
-                    <a href="#" class="btn btn-success">Add To Cart</a>
+                    <form action="/item/store-to-cart/{{ $item->id }}" method="post" autocomplete="off" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        @csrf
+                        <label for="qty">Quantity : </label>
+                        <input class="text-body btn btn-outline-success bg bg-white" type="number" id="qty" name="qty" min="1" max="100" value="1">
+                        <div class="container mt-2">
+                            <button action="submit" class="btn btn-success">Add To Cart</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

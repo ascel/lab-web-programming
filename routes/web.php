@@ -16,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+// Member & Guest
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/item/{id}', 'HomeController@details')->name('home.item.desc');
 Route::get('/item/add-to-cart/{id}', 'HomeController@add_to_cart')->name('home.item.add.to.cart');
+Route::post('/item/store-to-cart/{id}', 'HomeController@storeCart')->name('home.store.cart');
+
+
+// Admin
 
 Route::get('/manage', 'ManagerController@index')->name('manage');
 Route::get('/manage/itemlist', 'ManagerController@showItem')->name('manage.item.list');
