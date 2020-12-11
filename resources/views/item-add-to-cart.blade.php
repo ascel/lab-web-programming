@@ -34,7 +34,7 @@
                     <form action="/item/store-to-cart/{{ $item->id }}" method="post" autocomplete="off" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @csrf
                         <label for="qty">Quantity : </label>
-                        <input class="text-body btn btn-outline-success bg bg-white" type="number" id="qty" name="qty" min="1" max="100" value="1">
+                        <input class="text-body btn btn-outline-success bg bg-white" type="number" id="qty" name="qty" min="1" max="100" value="{{ App\CartDetail::where('item_id', $item->id)->exists() ? App\CartDetail::where('item_id', $item->id)->first()->qty : 1 }}">
                         <div class="container mt-2">
                             <button action="submit" class="btn btn-success">Add To Cart</button>
                         </div>

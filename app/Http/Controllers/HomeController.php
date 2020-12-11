@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Item;
+use App\Transaction;
+use App\TransactionDetail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Routing\RedirectController;
 
@@ -75,5 +77,43 @@ class HomeController extends Controller
         }
 
         return redirect()->to(route('home'));
+    }
+
+    public function cart() {
+        $cart = CartDetail::where('user_id', Auth::user()->id)->get();
+        return view('cart-page', compact('cart'));
+    }
+
+    public function cartDelete(CartDetail $cart) {
+        $cart->delete();
+        session()->flash("success", "The item was deleted from your cart");
+        return redirect(route('cart'));
+    }
+
+    public function history() {
+        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+        return view('history', compact('transactions'));
+    }
+
+    public function checkout() {
+        $transaction = new Transaction;
+        $transaction['user_id'] = Auth::user()->id;
+        $transaction->save();
+        $items = CartDetail::where('user_id', Auth::user()->id)->get();
+        foreach($items as $item) {
+            $detail = new TransactionDetail;
+            $detail['qty'] = $item->qty;
+            $detail['transaction_id'] = $transaction->id;
+            $detail['item_id'] = $item->item->id;
+            $detail['total_price'] = $item->total_price;
+            $detail->save();
+        }
+        CartDetail::where('user_id', Auth::user()->id)->delete();
+        return redirect(route('home'));
+    }
+
+    public function transactionDetail($id) {
+        $details = Transaction::find($id)->details;
+        return view('transaction-detail', compact('details'));
     }
 }

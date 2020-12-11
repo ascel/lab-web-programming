@@ -24,6 +24,12 @@ Route::get('/item/{id}', 'HomeController@details')->name('home.item.desc');
 Route::get('/item/add-to-cart/{id}', 'HomeController@add_to_cart')->name('home.item.add.to.cart');
 Route::post('/item/store-to-cart/{id}', 'HomeController@storeCart')->name('home.store.cart');
 
+Route::get('/cart', 'HomeController@cart')->name('cart');
+Route::delete('/cart/{cart:id}/delete', 'HomeController@cartDelete')->name('cart.delete');
+Route::get('/cart/checkout', 'HomeController@checkout')->name('checkout');
+
+Route::get('/history', 'HomeController@history')->name('history');
+Route::get('/history/{id}', 'HomeController@transactionDetail')->name('detail.transaction');
 
 // Admin
 

@@ -55,8 +55,13 @@
                                 </li>
                             @endif
                         @else
-                            <a href="#" class="btn btn-success my-2 my-sm-0 mr-2">Cart</a>
-                            <a href="#" class="btn btn-success my-2 my-sm-0 mr-2">History</a>
+                            <a href="{{ route('cart') }}" class="btn btn-success my-2 my-sm-0 mr-2" style="width: 11.5%">
+                                Cart
+                                <div class="badge badge-light">
+                                    {{ \App\CartDetail::where('user_id', Auth::user()->id)->count() }}
+                                </div>
+                            </a>
+                            <a href="{{ route('history') }}" class="btn btn-success my-2 my-sm-0 mr-2">History</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
