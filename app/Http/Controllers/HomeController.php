@@ -31,17 +31,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         if(Auth::check() and Auth::User()->is_admin) {
             return redirect()->route('manage');
         }
         else {
-            $items = Item::paginate(3);
+            $search = $request->get('search-bar');
+            $items = Item::where('name', 'like' , '%'.$search.'%')->orderBy('created_at','DESC')->paginate(3);
             return view('home', compact('items'));
         }
     }
-    
+
     public function details($item_id)
     {
         $item = Item::where('id', $item_id)->firstOrFail();
@@ -108,6 +109,7 @@ class HomeController extends Controller
             $detail['total_price'] = $item->total_price;
             $detail->save();
         }
+        session()->flash("error", "Your cart has been checked out");
         CartDetail::where('user_id', Auth::user()->id)->delete();
         return redirect(route('home'));
     }

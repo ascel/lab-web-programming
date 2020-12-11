@@ -41,8 +41,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto" style="width: 85%">
                         <!-- Authentication Links -->
-                        <form class="form-inline my-2 my-sm-0" style="width: 100%">
-                            <input class="form-control mr-sm-2" style="width: 80%" type="search" placeholder="Search" aria-label="Search">
+                        <form class="form-inline my-2 my-sm-0" style="width: 100%" method="GET" action="{{ route('home') }}">
+                            <input name="search-bar" class="form-control mr-sm-2" style="width: 80%" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                         @guest
