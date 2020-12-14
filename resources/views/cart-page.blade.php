@@ -39,7 +39,7 @@
                 </div>
             @endforeach
         </div>
-        @if(App\CartDetail::exists())
+        @if(App\CartDetail::where('user_id', Auth::user()->id)->exists())
             <div class="mt-3">
                 <a href="{{ route('checkout') }}" class="btn btn-danger">Checkout</a>
             </div>
