@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container mb-4">
                     <form action="/item/store-to-cart/{{ $item->id }}" method="post" autocomplete="off" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @csrf
                         <label for="qty">Quantity : </label>

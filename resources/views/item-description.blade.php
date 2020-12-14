@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container mt-2">
+                <div class="container mt-2 mb-4">
                     <a href="/item/add-to-cart/{{ $item->id }}" class="btn btn-success">Add To Cart</a>
                 </div>
             </div>
