@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if(Auth::check() and Auth::User()->is_admin)
+                        @if(Auth::check() and Auth::user()->is_admin)
                             <a href="{{ route('manage') }}" class="btn btn-info">Manage Shop</a>
                         @endif
                     </ul>

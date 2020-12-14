@@ -21,11 +21,11 @@
     <div class="container mt-3">
         <div class="row justify-content-center">
             @foreach ($items as $item)
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <a href="/item/{{ $item->id }}" class="card-header text-success">{{ $item->name }}</a>
                         <div class="card-body">
-                            <img style="height: 300px; object-fit: cover; object-position: center;" src="/storage/{{ $item->imageUrl }}" alt="{{ $item->name }}" class="img-fluid">
+                            <img style="max-height: 250px; object-fit: cover; object-position: center;" src="/storage/{{ $item->imageUrl }}" alt="{{ $item->name }}" class="img-fluid">
                             <div class="container mt-3">
                                 <div id="numbers">{{ "IDR " . number_format($item->price, 0,'.', '.') }}</div>
                                 <a href="/item/{{ $item->id }}" class="btn btn-success">Product Detail</a>
